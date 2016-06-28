@@ -6,7 +6,7 @@ public class UpdateTest {
         int result = 1+1;
         int result1 = 1-1;
         while (result == 2 && result1==0){
-            System.out.println("All K, go on with your live");     
+            System.out.println("All K, go on with your life 1");     
             Thread.sleep(30000);
         }
         System.out.println("Panic. It's all over for you buddy see you on the other side");

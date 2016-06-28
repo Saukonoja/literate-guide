@@ -4,29 +4,33 @@ import java.io.IOException;
 
 public class TestUpdater {
 
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) throws IOException {
+        //kill();
+        //getUpdate();
+        start();
     }
     
-    public void getUpdate() throws IOException{
+    public static void getUpdate() throws IOException{
         Process process = null;
         String cmd = "wget -P /home/h3694/UpdateTest/ "
-                + "https://github.com/Saukonoja/literate-guide/releases/download/0.6/Test.tar.gz"
-                + " && rm /home/h3694/UpdateTest/UpdateTest.jar"
-                + " && tar -vxf /home/h3694/UpdateTest/UpdateTest.tar.gz";
+                + "https://github.com/Saukonoja/literate-guide/releases/download/0.1.2/dist.tar.gz;"
+                + " rm /home/h3694/UpdateTest/UpdateTest.jar;"
+                + " cd /home/h3694/UpdateTest;"
+                + " tar -vxzf dist.tar.gz;";
         process = Runtime.getRuntime().exec(cmd);
     }
     
-    public void kill() throws IOException{
-        Process process2 = null;
-        String cmd2 = "pkill -f 'java.*UpdateTest'";
-        process2 = Runtime.getRuntime().exec(cmd2);
+    public static void kill() throws IOException{
+        String cmd2 = "/home/h3694/kill.sh";
+        Process process2 = new ProcessBuilder(cmd2).start();
     }
     
-    public void start() throws IOException{
-        Process process3 = null;
-        String cmd3 = "java -jar /home/h3694/UpdateTest/UpdateTest.jar";
-        process3 = Runtime.getRuntime().exec(cmd3);
+    public static void start() throws IOException{
+        System.out.println("ennen");
+        String cmd3 = "/home/h3694/wget.sh";  
+        Process process3 = new ProcessBuilder(cmd3).start();
+        System.out.println("jälkeen");
     }
+    
     
 }
