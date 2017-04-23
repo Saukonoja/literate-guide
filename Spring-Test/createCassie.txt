@@ -1,0 +1,11 @@
+CREATE KEYSPACE keyspacename WITH REPLICATION = {'class':'SimpleStrategy','replication_factor':3};
+
+
+CREATE TABLE users (
+	username text PRIMARY KEY,
+	firstname text,s
+	lastname text,
+	age int);
+
+INSERT INTO users (username, firstname, lastname, age) VALUES ('username', 'firstname', 'lastname', '0');
+	
