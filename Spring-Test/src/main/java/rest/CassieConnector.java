@@ -7,10 +7,9 @@ import com.datastax.driver.core.exceptions.NoHostAvailableException;
 
 public class CassieConnector{
 	Session session = null;
-	String cassandraClusterIp = "0.0.0.0"; //ip addres of the machine Cassandra is running on
 	String keyspace = "keyspacename"; // keyspace == database
 	public CassieConnector(){
-		this(cassandraClusterIp);
+		this("localhost");
 	}
 
 	public CassieConnector(String addr){
@@ -28,12 +27,12 @@ public class CassieConnector{
 		System.out.println(e.getErrors());
                 return results;
 	    }
-	
+
 	}
 
 	public void insertCassie(String table, String username, String firstname, String lastname, int age){
-		String cql = "INSERT INTO " + table + "(username, firstname, lastname, age) VALUES (" + 
-		                username + ", " + firstname + ", " + lastname + ", " +  age + ");" 
+		String cql = "INSERT INTO " + table + "(username, firstname, lastname, age) VALUES ('" + 
+		                username + "', '" + firstname + "', '" + lastname + "', " +  age + " );";
 		    try{
 		        session.execute(cql);
 		    }catch (NoHostAvailableException e){

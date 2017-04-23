@@ -10,12 +10,12 @@ public class User {
 
     //default constructor. 
     //This has to call to 'super();' otherwise Maven gives error in build 
-    public DataLocation(){
+    public User(){
         super();
     }
 
     //Constructor we actually use to create objects of this class
-    public DataLocation(String username, String firstname, String lastname, int age) {
+    public User(String username, String firstname, String lastname, int age) {
         this.username = username;
 	    this.firstname = firstname;
         this.lastname = lastname;
@@ -30,7 +30,7 @@ public class User {
         return username;
     }
     public String getFirstname() {
-	   return firstname;
+	return firstname;
     }
     public String getLastname() {
         return lastname;

@@ -11,14 +11,14 @@ import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
 
 @RestController
-public class DataLocationController {
+public class UserController {
     CassieConnector cc = new CassieConnector();
 
     @RequestMapping("/getOneRow")
     public User getOneRow() {
         
 	ResultSet result;
-    result = cc.selectCassie("SELECT * FROM sonera");
+    result = cc.selectCassie("SELECT * FROM users");
 	Row row = result.one();
     return new User(row.getString("username"),
                     row.getString("firstname"),
@@ -44,7 +44,7 @@ public class DataLocationController {
 
     @RequestMapping(value = "/postOneRow", method = RequestMethod.POST)
     public User postUser(@RequestBody User u){
-	cc.insertCassie("sonera", u.getUsername(), u.getFirstname(), u.getLastname(), u.getAge());
+	cc.insertCassie("users", u.getUsername(), u.getFirstname(), u.getLastname(), u.getAge());
 	return u;
 	
     }

@@ -1,5 +1,5 @@
-/home/delta/REPOS/Cassandra-REST-Spring-/src/main/java/rest/DataLocationController.java
-/home/delta/REPOS/Cassandra-REST-Spring-/src/main/java/rest/CassieConnector.java
-/home/delta/REPOS/Cassandra-REST-Spring-/src/main/java/rest/DataLocationList.java
-/home/delta/REPOS/Cassandra-REST-Spring-/src/main/java/rest/DataLocation.java
-/home/delta/REPOS/Cassandra-REST-Spring-/src/main/java/rest/Application.java
+/home/ubuntu/literate-guide/Spring-Test/src/main/java/rest/Application.java
+/home/ubuntu/literate-guide/Spring-Test/src/main/java/rest/CassieConnector.java
+/home/ubuntu/literate-guide/Spring-Test/src/main/java/rest/User.java
+/home/ubuntu/literate-guide/Spring-Test/src/main/java/rest/UserList.java
+/home/ubuntu/literate-guide/Spring-Test/src/main/java/rest/UserController.java
