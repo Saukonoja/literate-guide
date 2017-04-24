@@ -48,8 +48,6 @@
 		<artifactId>json-simple</artifactId>
 		<version>1.1</version>
 	</dependency>
-    </dependencies>
-    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Get top row of users table</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Row</h1>
+    <p th:text="'Username: ' + ${user.username}" />
+    <p th:text="'Firstname: ' + ${user.fistname}" />
+    <p th:text="'Lastname: ' + ${user.lastname}" />
+    <p th:text="'Age: ' + ${user.age}" />
+    <a href="/get-one-row">Add another user</a>
+</body>
+</html>

@@ -1,5 +1,5 @@
 rest/Application.class
-rest/CassieConnector.class
 rest/UserList.class
 rest/UserController.class
+rest/CassieConnector.class
 rest/User.class
