@@ -20,7 +20,7 @@ public class UIController{
 
     @PostMapping("/ui")
     public String userSubmit(@ModelAttribute User user) {
-        cc.insertCassie("users", u.getUsername(), u.getFirstname(), u.getLastname(), u.getAge());
+        cc.insertCassie("users", user.getUsername(), user.getFirstname(), user.getLastname(), user.getAge());
         return "result";
     }
 }
