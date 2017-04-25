@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h1>Form</h1>
-    <form action="#" th:action="@{/uiPost}" th:object="${user}" method="post">
+    <form action="#" th:action="@{/ui}" th:object="${user}" method="post">
     	<p>Username: <input type="text" th:field="*{username}" /></p>
         <p>Firstname: <input type="text" th:field="*{firstname}" /></p>
         <p>Lastname: <input type="text" th:field="*{lastname}" /></p>
