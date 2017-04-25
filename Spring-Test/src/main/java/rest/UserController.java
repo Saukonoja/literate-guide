@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
@@ -15,8 +19,7 @@ public class UserController {
     CassieConnector cc = new CassieConnector();
 
     @RequestMapping("/getOneRow")
-    public User getOneRow() {
-        
+    public User getOneRow() {       
 	ResultSet result;
     result = cc.selectCassie("SELECT * FROM users");
 	Row row = result.one();
@@ -47,6 +50,25 @@ public class UserController {
 	cc.insertCassie("users", u.getUsername(), u.getFirstname(), u.getLastname(), u.getAge());
 	return u;
 	
+    }
+
+    @GetMapping("/uiGet")
+    public String uiGet(Model model) {
+        ResultSet result;
+        result = cc.selectCassie("SELECT * FROM users");
+        Row row = result.one();
+        model.addAttribute("user", 
+            new User(row.getString("username"),
+                    row.getString("firstname"),
+                    row.getString("lastname"),
+                    row.getInt("age")));
+        return "user";
+    }
+
+    @PostMapping("/uiPost")
+    public String userSubmit(@ModelAttribute User u) {
+        cc.insertCassie("users", u.getUsername(), u.getFirstname(), u.getLastname(), u.getAge());
+        return "result";
     }
 }
 
