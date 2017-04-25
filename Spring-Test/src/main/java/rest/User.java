@@ -22,19 +22,34 @@ public class User {
         this.age = age;
     }
 
-    //Getters only. 
-    //We do not need setters 
-    //because the values of an object will not change in the objects lifetime
-    //but we need to get the values of object to write them in the database
+    public void setUsername(String username){
+        this.username = username;
+    }
+
     public String getUsername() {
         return username;
     }
-    public String getFirstname() {
-	return firstname;
+
+    public void setFirstname(String firstname){
+        this.firstname = firstname;
     }
+
+    public String getFirstname() {
+	   return firstname;
+    }
+
+    public void setLastname(String lastname){
+        this.lastname = lastname;
+    }
+
     public String getLastname() {
         return lastname;
     }
+
+    public void setAge(int age){
+        this.age = age;
+    }
+
     public int getAge() {
         return age;
     }

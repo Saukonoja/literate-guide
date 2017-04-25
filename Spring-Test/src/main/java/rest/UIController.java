@@ -13,22 +13,14 @@ public class UIController{
 	CassieConnector cc = new CassieConnector();
 	
 	@GetMapping("/ui")
-    public String uiGet(Model model) {
-        /*ResultSet result;
-        result = cc.selectCassie("SELECT * FROM users");
-        Row row = result.one();
-        model.addAttribute("user", 
-            new User(row.getString("username"),
-                    row.getString("firstname"),
-                    row.getString("lastname"),
-                    row.getInt("age")));*/
+    public String uiForm(Model model) {
 	model.addAttribute("user", new User());
         return "user";
     }
 
     @PostMapping("/ui")
     public String userSubmit(@ModelAttribute User user) {
-        //cc.insertCassie("users", u.getUsername(), u.getFirstname(), u.getLastname(), u.getAge());
+        cc.insertCassie("users", u.getUsername(), u.getFirstname(), u.getLastname(), u.getAge());
         return "result";
     }
 }
