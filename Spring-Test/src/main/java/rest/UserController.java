@@ -6,14 +6,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
+import java.util.List;
+import java.util.ArrayList;
+
 
 @RestController
 public class UserController {
     CassieConnector cc = new CassieConnector();
 
+    @CrossOrigin
     @RequestMapping("/getOneRow")
     public User getOneRow() {       
 	ResultSet result;
@@ -26,8 +31,8 @@ public class UserController {
     }
 
     @RequestMapping("/getAllRows")
-    public UserList getAllRows(){
-        UserList userList = new UserList();
+    public List<User> getAllRows(){
+        List<User> userList = new ArrayList<>();
 	    ResultSet result;
         result = cc.selectCassie("SELECT * FROM users");
 
@@ -36,7 +41,7 @@ public class UserController {
                                 row.getString("firstname"),
                                 row.getString("lastname"),
                                 row.getInt("age"));
-                userList.getUserList().add(u);
+                userList.add(u);
         }
         return userList;
     }
