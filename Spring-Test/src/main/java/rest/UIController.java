@@ -48,8 +48,8 @@ public class UIController{
     public String viewUsers () {
         return "user-listing";
     }
-	
-	@GetMapping("/ui")
+
+    @GetMapping("/ui")
     public String uiForm(Model model) {
 	model.addAttribute("user", new User());
         return "user";
