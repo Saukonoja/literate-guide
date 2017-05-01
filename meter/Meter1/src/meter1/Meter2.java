@@ -42,10 +42,14 @@ public class Meter2 implements Runnable {
         
     @Override
     public void run() {
-        
+        Thread thisThread = Thread.currentThread();
+        while (thread == thisThread){
+            //receiveEvent();
+             
+        }
         
         //sendLog();
-        sendTempRequest();
+        //sendTempRequest();
         
     }
     
@@ -56,8 +60,8 @@ public class Meter2 implements Runnable {
             System.out.println("Starting " +  threadName );
             thread = new Thread (this, threadName);
             thread.start();
-            
             attachUser();
+           
         }
         
     }
@@ -107,13 +111,13 @@ public class Meter2 implements Runnable {
     }
     
      public static void attachUser(){
-            kaaClient.attachUser("asd", "asd", new UserAttachCallback() {
+            kaaClient.attachUser("asdddd", "asddddd", new UserAttachCallback() {
                 @Override
                 public void onAttachResult(UserAttachResponse response) {
                   if(response.getResult() == SyncResponseResultType.SUCCESS){
                       System.out.println("terve");
                       receiveEvent();
-                      
+                      System.out.println(kaaClient.getEndpointKeyHash());
                       
                       
                   }
